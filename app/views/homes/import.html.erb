@@ -1,6 +1,6 @@
-Please import Csv
+Please select csv
 
 <%= form_tag import_csv_path, multipart: true do %>
-  <%= file_field_tag :file %>
+  <%= file_field_tag :file,:required => true %>
   <%= submit_tag "Import" %>
 <% end %>

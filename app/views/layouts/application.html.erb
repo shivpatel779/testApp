@@ -8,11 +8,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-    <% if user_signed_in? %>  
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-    <% end %>
-
   <body>
+    <%if user_signed_in? %>
+      <%= render 'layouts/header'%>
+    <% end %>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <%= yield %>
+    
   </body>
 </html>

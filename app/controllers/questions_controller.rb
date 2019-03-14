@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
   # POST /question
   # POST /question.json
   def create
+    binding.pry
     @question = Question.new(question_params)
     respond_to do |format|
       if @question.save
@@ -25,6 +26,7 @@ class QuestionsController < ApplicationController
 
         format.json { render json: @question.errors, status: :unprocessable_entity }
       end
+    authorize! :create, @question  
     end
   end
 
@@ -52,6 +54,7 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to questions_path, notice: 'Question was successfully destroyed.' }
       format.json { head :no_content }
+      authorize! :create, @question
     end
   end
 

@@ -1,37 +1,35 @@
- <% content_for(:body_attributes) do %>
-  <%= form_for @question do |f| %>
-  <%#= form_with(model: question, local: true) do |f| %>  
-    <td>
-      <%= f.text_field :id, readonly: true %>
-    </td>
-    <td>
-      <%= f.text_field :pri %>
-    </td>
-    <td>
-      <%= f.text_field :question%>
-    </td>
-    <td>
-      <%= f.text_field :teaming_stages%>
-    </td>
-    <td>
-      <%= f.text_field :appears_day%>
-    </td>
-    <td>
-      <%= f.text_field :frequency%>
-    </td>
-    <td>
-      <%= f.text_field :question_type%>
-    </td>
-    <td>
-      <%= f.text_field :required?%>
-    </td>
-    <td>
-      <%= f.text_field :conditions%>
-    </td>
-    <td>
-      <%= f.select :mapping_id, options_for_select(Mapping.all.collect{|p| [p.name , p.id]},:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
-    </td>  
-    <td>
-      <%= f.submit %>
-    </td>
-  <% end %>
+<%= form_for @question, "data-turbolinks"=>"true"  do |f| %>
+  <td>
+    <%= f.text_field :id, readonly: true %>
+  </td>
+  <td>
+    <%= f.text_field :pri, :required => true  %>
+  </td>
+  <td>
+    <%= f.text_field :question, :required => true %>
+  </td>
+  <td>
+    <%= f.text_field :teaming_stages, :required => true %>
+  </td>
+  <td>
+    <%= f.text_field :appears_day, :required => true%>
+  </td>
+  <td>
+    <%= f.text_field :frequency, :required => true%>
+  </td>
+  <td>
+    <%= f.text_field :question_type, :required => true%>
+  </td>
+  <td>
+    <%= f.text_field :required?, :required => true%>
+  </td>
+  <td>
+    <%= f.text_field :conditions, :required => true%>
+  </td>
+  <td>
+    <%= f.select :mapping_id, options_for_select(Mapping.all.collect{|p| [p.name , p.id]},:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+  </td>  
+  <td>
+    <%= f.submit %>
+  </td>
+<% end %>

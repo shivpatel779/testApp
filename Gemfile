@@ -33,6 +33,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 # Use Design
 gem 'bootstrap', '~> 4.3.1'
+gem 'active_model_serializers'
 
 gem 'jquery-rails'
 # Use Capistrano for deployment
