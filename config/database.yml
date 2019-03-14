@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: backend_development101
+  pool: 5
+  username: postgres
+  password: 12345678
+  host: localhost

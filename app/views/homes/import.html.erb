@@ -1,0 +1,6 @@
+Please import Csv
+
+<%= form_tag import_csv_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
