@@ -5,8 +5,8 @@ class Api::V1::QuestionsController < Api::ApiController
   skip_before_action :verify_authenticity_token
   
   def index
-    @questions = Question.all
-    render json: @questions
+    @questions = Question.order("id ASC").paginate(:page => params[:page], :per_page => 10)
+    render json: {questions: @questions, total: @questions.count }
   end
 
   def create

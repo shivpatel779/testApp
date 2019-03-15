@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :get_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.paginate(:page => params[:page], :per_page => 6)
+    @questions = Question.order("id ASC").paginate(:page => params[:page], :per_page => 6)
     @question = Question.new
   end
 

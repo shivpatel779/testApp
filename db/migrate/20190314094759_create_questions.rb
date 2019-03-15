@@ -4,8 +4,8 @@ class CreateQuestions < ActiveRecord::Migration[5.2]
       t.integer :pri
       t.string :question
       t.string :teaming_stages
-      t.string :appears_day
-      t.string :frequency
+      t.integer :appears_day
+      t.integer :frequency
       t.string :question_type
       t.string :conditions
       t.integer :mapping_id
