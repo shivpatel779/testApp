@@ -1,4 +1,4 @@
-<%= form_for @question, method: :patch  do |f| %>
+<%= form_for @question  do |f| %>
   <td>
     <%= f.text_field :id, readonly: true %>
   </td>
@@ -30,6 +30,6 @@
     <%= f.select :mapping_id, options_for_select(Mapping.all.collect{|p| [p.name , p.id]},:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
   </td>  
   <td>
-    <%= f.submit nil, id: "update-form" %>
+    <%= f.submit %>
   </td>
 <% end %>

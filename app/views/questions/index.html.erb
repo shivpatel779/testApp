@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-responsive">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -16,24 +16,39 @@
   </thead>
   <tbody>
     <% @questions.each_with_index do |question,index| %>
-      <tr id="question_<%=question.id %>">
-        <th scope="row"><%= index + 1 %></th>
-        <td><%=question.pri%></td>
-        <td><%=question.question%></td>
-        <td><%=question.teaming_stages%></td>
-        <td><%=question.appears_day%></td>
-        <td><%=question.frequency%></td>
-        <td><%=question.question_type%></td>
-        <td><%=question.required?  %></td>
-        <td><%=question.conditions %></td>
-        <td><%=question.mapping.name %></td>
+      <div class="table" id="question_<%=question.id %>">
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%=question.pri%></td>
+          <td><%=question.question%></td>
+          <td><%=question.teaming_stages%></td>
+          <td><%=question.appears_day%></td>
+          <td><%=question.frequency%></td>
+          <td><%=question.question_type%></td>
+          <td><%=question.required?  %></td>
+          <td><%=question.conditions %></td>
+          <td><%=question.mapping.name %></td>
 
-        <td><%= link_to 'Edit', edit_question_path(question), remote: true %>
-            <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
+          <td><%= link_to 'Edit', edit_question_path(question), remote: true %>
+              <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </div>
       </tr>
     <% end %>
-    <%= render "form" %>
+      <%= render "new_form" %>
   </tbody>
 </table>
 <%= will_paginate @questions %>
+
+<script>
+  // $(document).on('click', "#update-form", function(){
+  //   $.ajax({
+  //     url: "/questions/"+1+,
+  //     type: "PATCH",
+  //     success: function (response) {
+  //       console.log(response)
+  //       $('#need-des').html(response.description);
+  //     }
+  //   })
+  // })
+</script>

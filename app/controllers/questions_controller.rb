@@ -15,7 +15,6 @@ class QuestionsController < ApplicationController
   # POST /question
   # POST /question.json
   def create
-    binding.pry
     @question = Question.new(question_params)
     respond_to do |format|
       if @question.save
