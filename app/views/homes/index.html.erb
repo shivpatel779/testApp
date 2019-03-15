@@ -1,4 +1,5 @@
 <br>
-
-<%= link_to "Import Data", import_path %><br>
+<% if current_user.has_role? :admin %>
+  <%= link_to "Import Data", import_path %><br>
+<% end %>
 <%= link_to "Show Records", questions_path %>

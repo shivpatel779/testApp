@@ -1,6 +1,5 @@
 class HomesController < ApplicationController
-  def index
-  end
+  def index;end
 
   def import
     authorize! :import, @question

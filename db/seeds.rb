@@ -8,6 +8,6 @@
 
 
 
-user = User.new(email: "admin@example.com", password: 12345678, password_confirmation: 12345678)
+user = User.new(email: "admin@example.com", password: "password", password_confirmation: "password")
 user.save
 user.add_role "admin"

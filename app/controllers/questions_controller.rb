@@ -1,51 +1,32 @@
 class QuestionsController < ApplicationController
   before_action :get_question, only: [:show, :edit, :update, :destroy]
 
-  # GET /question
-  # GET /question.json
   def index
     @questions = Question.paginate(:page => params[:page], :per_page => 6)
     @question = Question.new
   end
 
-  # GET /question/1/edit
-  def edit
-  end
+  def edit;end
 
-  # POST /question
-  # POST /question.json
   def create
+    authorize! :create, @question
     @question = Question.new(question_params)
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to questions_path, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @story }
-      else
-        format.html { redirect_to @question, notice: 'Sonthing was wrong try again.' }
-
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    authorize! :create, @question  
-    end
+    if @question.save
+      redirect_to questions_path, notice: 'Question was successfully created.'
+    else
+      redirect_to @question, notice: 'Something was wrong try again.'
+    end  
   end
 
-
-
-  # PATCH/PUT /question/1
-  # PATCH/PUT /question/1.json
   def update
+    authorize! :update, @question
     @question.update(question_params)
   end
 
-  # DELETE /question/1
-  # DELETE /question/1.json
   def destroy
+    authorize! :destroy, @question
     @question.destroy
-    respond_to do |format|
-      format.html { redirect_to questions_path, notice: 'Question was successfully destroyed.' }
-      format.json { head :no_content }
-      authorize! :create, @question
-    end
+    redirect_to questions_path, notice: 'Question was successfully destroyed.'
   end
 
 

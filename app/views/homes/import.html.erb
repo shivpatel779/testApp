@@ -1,6 +1,11 @@
-Please select csv
-
-<%= form_tag import_csv_path, multipart: true do %>
-  <%= file_field_tag :file,:required => true %>
-  <%= submit_tag "Import" %>
-<% end %>
+<div class="container">
+  <div class="row choose-file">
+    <div class="col-md-6">
+      <h5>Please select csv</h5>
+      <%= form_tag import_csv_path, multipart: true do %>
+        <%= file_field_tag :file,:required => true, class: "upload-file-form" %>
+        <%= submit_tag "Import", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,9 @@
 <td><%=question.required?  %></td>
 <td><%=question.conditions %></td>
 <td><%=question.mapping.name %></td>
-
-<td><%= link_to 'Edit', edit_question_path(question), remote: true %>
+<% if current_user.has_role? :admin %>
+  <td>
+    <%= link_to 'Edit', edit_question_path(question), remote: true %>
     <%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
-</td>
+  </td>
+<% end %>
