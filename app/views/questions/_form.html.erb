@@ -1,8 +1,5 @@
 <%= form_for @question, method: :patch  do |f| %>
   <td>
-    <%= f.text_field :id, readonly: true %>
-  </td>
-  <td>
     <%= f.text_field :pri, :required => true  %>
   </td>
   <td>
@@ -27,7 +24,7 @@
     <%= f.text_field :conditions, :required => true%>
   </td>
   <td>
-    <%= f.select :mapping_id, options_for_select(Mapping.all.collect{|p| [p.name , p.id]},:disabled => ["Select One"]), :class => 'genForm_dropBox' %>
+    <%= f.select :mapping_id, options_for_select(Mapping.all.collect{|p| [p.name , p.id]}, f.object.mapping_id), :class => 'genForm_dropBox' %>
   </td>  
   <td>
     <%= f.submit nil, id: "update-form" %>
